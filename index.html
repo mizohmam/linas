@@ -1,0 +1,1092 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>عدسات ليناس</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700;800;900&display=swap" rel="stylesheet">
+  <style>
+    :root{
+      --bg:#090909;
+      --bg2:#121212;
+      --card:#151515;
+      --soft:#1d1d1d;
+      --line:rgba(255,255,255,.08);
+      --text:#ffffff;
+      --muted:#cfcfcf;
+      --muted2:#9f9f9f;
+      --accent:#f0dfe5;
+      --accent2:#b18a94;
+      --shadow:0 20px 60px rgba(0,0,0,.35);
+      --radius:24px;
+      --tamara:#7b61ff;
+    }
+
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{
+      margin:0;
+      font-family:"Tajawal",system-ui,sans-serif;
+      color:var(--text);
+      background:
+        radial-gradient(circle at top right, rgba(255,255,255,.05), transparent 18%),
+        radial-gradient(circle at 20% 20%, rgba(255,255,255,.03), transparent 20%),
+        linear-gradient(180deg, #060606 0%, #0f0f0f 55%, #090909 100%);
+      overflow-x:hidden;
+    }
+
+    a{text-decoration:none;color:inherit}
+    img{display:block;max-width:100%}
+
+    .container{
+      width:min(100%, 430px);
+      margin:0 auto;
+      position:relative;
+      background:linear-gradient(180deg, rgba(255,255,255,.015), rgba(255,255,255,.005));
+      min-height:100vh;
+      overflow:hidden;
+    }
+
+    .glow{
+      position:absolute;
+      inset:auto -80px 0 auto;
+      width:220px;height:220px;
+      background:radial-gradient(circle, rgba(255,255,255,.08), transparent 70%);
+      filter:blur(10px);
+      pointer-events:none;
+      z-index:0;
+    }
+
+    .header{
+      position:sticky;
+      top:0;
+      z-index:40;
+      backdrop-filter:blur(16px);
+      background:rgba(8,8,8,.7);
+      border-bottom:1px solid var(--line);
+      padding:14px 16px;
+    }
+
+    .header-row{
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:12px;
+    }
+
+    .brand{
+      display:flex;
+      align-items:center;
+      gap:10px;
+      font-weight:900;
+      font-size:18px;
+    }
+
+    .brand-logo{
+      width:34px;
+      height:34px;
+      border-radius:12px;
+      background:#fff;
+      padding:6px;
+      box-shadow:var(--shadow);
+      object-fit:contain;
+    }
+
+    .header-badge{
+      font-size:12px;
+      color:#111;
+      background:linear-gradient(135deg, #fff, #e7d8de);
+      padding:8px 12px;
+      border-radius:999px;
+      font-weight:800;
+    }
+
+    .hero{
+      position:relative;
+      padding:28px 18px 20px;
+      z-index:1;
+    }
+
+    .hero-card{
+      position:relative;
+      overflow:hidden;
+      border-radius:32px;
+      background:
+        radial-gradient(circle at top right, rgba(255,255,255,.10), transparent 25%),
+        linear-gradient(160deg, #1a1a1a, #0d0d0d 70%);
+      border:1px solid var(--line);
+      min-height:600px;
+      padding:26px 18px 18px;
+      box-shadow:var(--shadow);
+    }
+
+    .hero-card::before{
+      content:"";
+      position:absolute;
+      inset:auto -70px -70px auto;
+      width:220px;height:220px;
+      background:radial-gradient(circle, rgba(240,223,229,.18), transparent 72%);
+      filter:blur(18px);
+      pointer-events:none;
+    }
+
+    .hero-top{
+      position:relative;
+      z-index:2;
+      text-align:center;
+    }
+
+    .kicker{
+      color:var(--accent);
+      font-size:13px;
+      font-weight:700;
+      margin-bottom:8px;
+      opacity:.95;
+    }
+
+    .hero h1{
+      margin:0;
+      font-size:42px;
+      line-height:1.02;
+      font-weight:900;
+      letter-spacing:-1px;
+    }
+
+    .hero p{
+      margin:12px auto 0;
+      max-width:310px;
+      color:var(--muted);
+      line-height:1.9;
+      font-size:15px;
+      font-weight:500;
+    }
+
+    .hero-box-wrap{
+      position:relative;
+      margin-top:30px;
+      min-height:250px;
+    }
+
+    .hero-box-shadow{
+      position:absolute;
+      inset:auto 50% 8px auto;
+      transform:translateX(50%);
+      width:220px;
+      height:36px;
+      background:radial-gradient(circle, rgba(0,0,0,.55), transparent 70%);
+      filter:blur(12px);
+    }
+
+    .hero-box{
+      width:220px;
+      margin:0 auto;
+      animation:floatBox 4.6s ease-in-out infinite;
+      filter:drop-shadow(0 24px 40px rgba(0,0,0,.35));
+    }
+
+    @keyframes floatBox{
+      0%,100%{transform:translateY(0) rotate(-1deg)}
+      50%{transform:translateY(-10px) rotate(1deg)}
+    }
+
+    .hero-stats{
+      display:grid;
+      grid-template-columns:repeat(3,1fr);
+      gap:10px;
+      margin-top:18px;
+    }
+
+    .stat{
+      background:rgba(255,255,255,.04);
+      border:1px solid var(--line);
+      border-radius:20px;
+      padding:12px 10px;
+      text-align:center;
+    }
+
+    .stat b{
+      display:block;
+      font-size:18px;
+      margin-bottom:4px;
+    }
+
+    .stat span{
+      display:block;
+      font-size:12px;
+      color:var(--muted2);
+      line-height:1.5;
+    }
+
+    .tamara{
+      margin:18px;
+      padding:16px;
+      border-radius:26px;
+      background:linear-gradient(135deg, #ffffff, #f6f4ff);
+      color:#1a1a1a;
+      box-shadow:var(--shadow);
+      display:flex;
+      align-items:center;
+      gap:12px;
+      border:1px solid rgba(0,0,0,.04);
+    }
+
+    .tamara-logo{
+      width:58px;
+      height:58px;
+      border-radius:18px;
+      object-fit:contain;
+      background:#fff;
+      padding:8px;
+      box-shadow:0 10px 20px rgba(0,0,0,.08);
+      flex:0 0 auto;
+    }
+
+    .tamara small{
+      display:block;
+      color:#555;
+      margin-bottom:4px;
+      font-weight:700;
+      font-size:12px;
+    }
+
+    .tamara strong{
+      display:block;
+      font-size:17px;
+      line-height:1.5;
+      font-weight:900;
+    }
+
+    .section{
+      padding:10px 18px 0;
+      position:relative;
+      z-index:1;
+    }
+
+    .section-head{
+      display:flex;
+      align-items:end;
+      justify-content:space-between;
+      gap:12px;
+      margin-bottom:16px;
+    }
+
+    .section-head h2{
+      margin:0;
+      font-size:28px;
+      font-weight:900;
+      letter-spacing:-.5px;
+    }
+
+    .section-head span{
+      color:var(--muted2);
+      font-size:13px;
+      font-weight:700;
+    }
+
+    .feature-grid{
+      display:grid;
+      gap:12px;
+    }
+
+    .feature{
+      background:linear-gradient(180deg, rgba(255,255,255,.04), rgba(255,255,255,.02));
+      border:1px solid var(--line);
+      border-radius:22px;
+      padding:16px;
+      display:flex;
+      gap:14px;
+      align-items:flex-start;
+    }
+
+    .feature-icon{
+      width:46px;
+      height:46px;
+      border-radius:16px;
+      background:linear-gradient(135deg, #f0dfe5, #b18a94);
+      color:#111;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      font-size:20px;
+      font-weight:900;
+      flex:0 0 auto;
+    }
+
+    .feature b{
+      display:block;
+      margin-bottom:4px;
+      font-size:16px;
+    }
+
+    .feature p{
+      margin:0;
+      color:var(--muted);
+      line-height:1.8;
+      font-size:14px;
+    }
+
+    .collection{
+      padding:20px 18px 110px;
+    }
+
+    .filter-row{
+      display:flex;
+      gap:10px;
+      overflow:auto;
+      padding-bottom:8px;
+      margin-bottom:16px;
+      scrollbar-width:none;
+    }
+
+    .filter-row::-webkit-scrollbar{display:none}
+
+    .filter-btn{
+      border:none;
+      background:#181818;
+      color:#fff;
+      border:1px solid var(--line);
+      padding:11px 16px;
+      border-radius:999px;
+      font-family:inherit;
+      font-size:13px;
+      font-weight:800;
+      cursor:pointer;
+      white-space:nowrap;
+      transition:.25s ease;
+    }
+
+    .filter-btn.active{
+      background:linear-gradient(135deg, #f0dfe5, #cfaebb);
+      color:#111;
+      border-color:transparent;
+    }
+
+    .cards{
+      display:grid;
+      gap:16px;
+    }
+
+    .lens-card{
+      position:relative;
+      overflow:hidden;
+      border-radius:30px;
+      background:linear-gradient(180deg, rgba(255,255,255,.05), rgba(255,255,255,.015));
+      border:1px solid var(--line);
+      box-shadow:var(--shadow);
+    }
+
+    .lens-card::before{
+      content:"";
+      position:absolute;
+      inset:auto -50px -50px auto;
+      width:180px;height:180px;
+      background:radial-gradient(circle, rgba(240,223,229,.12), transparent 72%);
+      pointer-events:none;
+    }
+
+    .lens-media{
+      position:relative;
+      min-height:430px;
+      overflow:hidden;
+      background:#0f0f0f;
+    }
+
+    .model{
+      width:100%;
+      height:430px;
+      object-fit:cover;
+      object-position:center top;
+      transform:scale(1.02);
+      transition:transform .6s ease;
+    }
+
+    .lens-card:hover .model{
+      transform:scale(1.06);
+    }
+
+    .lens-overlay{
+      position:absolute;
+      inset:0;
+      background:
+        linear-gradient(180deg, rgba(0,0,0,.02), transparent 35%, rgba(0,0,0,.55) 100%),
+        radial-gradient(circle at center, transparent 40%, rgba(0,0,0,.12) 100%);
+      pointer-events:none;
+    }
+
+    .lens-top-badge{
+      position:absolute;
+      top:14px;
+      right:14px;
+      z-index:2;
+      background:rgba(255,255,255,.92);
+      color:#111;
+      padding:9px 12px;
+      border-radius:999px;
+      font-size:12px;
+      font-weight:900;
+      box-shadow:0 10px 24px rgba(0,0,0,.18);
+    }
+
+    .bubble-eye{
+      position:absolute;
+      left:16px;
+      bottom:16px;
+      width:98px;
+      height:98px;
+      border-radius:50%;
+      overflow:hidden;
+      border:5px solid rgba(255,255,255,.9);
+      box-shadow:0 16px 30px rgba(0,0,0,.28);
+      background:#fff;
+      z-index:3;
+    }
+
+    .bubble-eye img{
+      width:100%;
+      height:100%;
+      object-fit:cover;
+      transform:scale(1.35);
+    }
+
+    .box-mini{
+      position:absolute;
+      left:124px;
+      bottom:18px;
+      width:72px;
+      filter:drop-shadow(0 12px 20px rgba(0,0,0,.25));
+      z-index:3;
+    }
+
+    .lens-content{
+      padding:18px 16px 18px;
+    }
+
+    .lens-title{
+      display:flex;
+      align-items:flex-start;
+      justify-content:space-between;
+      gap:12px;
+      margin-bottom:10px;
+    }
+
+    .lens-title h3{
+      margin:0;
+      font-size:24px;
+      line-height:1.1;
+      font-weight:900;
+    }
+
+    .lens-title h3 small{
+      display:block;
+      color:var(--muted2);
+      font-size:13px;
+      margin-top:5px;
+      font-weight:700;
+    }
+
+    .price{
+      text-align:left;
+      flex:0 0 auto;
+    }
+
+    .price b{
+      display:block;
+      font-size:22px;
+    }
+
+    .price span{
+      display:block;
+      color:var(--muted2);
+      font-size:12px;
+      margin-top:2px;
+      font-weight:700;
+    }
+
+    .lens-desc{
+      margin:0 0 14px;
+      color:var(--muted);
+      line-height:1.9;
+      font-size:14px;
+    }
+
+    .meta-grid{
+      display:grid;
+      grid-template-columns:repeat(2,1fr);
+      gap:10px;
+      margin-bottom:14px;
+    }
+
+    .meta-item{
+      padding:12px;
+      border-radius:18px;
+      background:rgba(255,255,255,.04);
+      border:1px solid var(--line);
+    }
+
+    .meta-item span{
+      display:block;
+      color:var(--muted2);
+      font-size:12px;
+      margin-bottom:4px;
+      font-weight:700;
+    }
+
+    .meta-item b{
+      display:block;
+      font-size:14px;
+      line-height:1.6;
+    }
+
+    .lens-actions{
+      display:grid;
+      grid-template-columns:1fr 1fr;
+      gap:10px;
+    }
+
+    .btn{
+      border:none;
+      cursor:pointer;
+      font-family:inherit;
+      border-radius:18px;
+      padding:15px 14px;
+      font-weight:900;
+      font-size:14px;
+      transition:.25s ease;
+      text-align:center;
+    }
+
+    .btn-primary{
+      background:linear-gradient(135deg, #f0dfe5, #cfaebb);
+      color:#111;
+      box-shadow:0 12px 24px rgba(207,174,187,.18);
+    }
+
+    .btn-secondary{
+      background:#181818;
+      color:#fff;
+      border:1px solid var(--line);
+    }
+
+    .btn:hover{transform:translateY(-2px)}
+
+    .sticky-bar{
+      position:fixed;
+      bottom:0;
+      left:50%;
+      transform:translateX(-50%);
+      width:min(100%,430px);
+      background:rgba(10,10,10,.92);
+      backdrop-filter:blur(18px);
+      border-top:1px solid var(--line);
+      padding:12px 16px calc(12px + env(safe-area-inset-bottom));
+      z-index:80;
+    }
+
+    .sticky-inner{
+      display:flex;
+      gap:10px;
+      align-items:center;
+    }
+
+    .sticky-note{
+      flex:1;
+      font-size:12px;
+      color:var(--muted);
+      line-height:1.7;
+    }
+
+    .sticky-cta{
+      flex:0 0 auto;
+      background:linear-gradient(135deg, #f0dfe5, #cfaebb);
+      color:#111;
+      padding:14px 18px;
+      border-radius:18px;
+      font-weight:900;
+      font-size:14px;
+      box-shadow:0 12px 24px rgba(207,174,187,.18);
+      white-space:nowrap;
+    }
+
+    .reveal{
+      opacity:0;
+      transform:translateY(28px);
+      transition:opacity .7s ease, transform .7s ease;
+    }
+
+    .reveal.show{
+      opacity:1;
+      transform:none;
+    }
+
+    @media (max-width:360px){
+      .hero h1{font-size:34px}
+      .section-head h2{font-size:24px}
+      .lens-title h3{font-size:20px}
+      .price b{font-size:18px}
+      .bubble-eye{width:84px;height:84px}
+      .box-mini{left:108px;width:62px}
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="glow"></div>
+
+    <header class="header">
+      <div class="header-row">
+        <div class="brand">
+          <img class="brand-logo" src="https://cdn.salla.sa/cdn-cgi/image/fit=scale-down,width=400,height=400,onerror=redirect,format=auto/WlBnoV/axMYoRuWLkNBZAS85NyIj3NoHVjZ23R0PcBlc2r7.png" alt="Lina's Logo">
+          <span>عدسات ليناس</span>
+        </div>
+        <div class="header-badge">ألوان طبية فاخرة</div>
+      </div>
+    </header>
+
+    <section class="hero">
+      <div class="hero-card reveal">
+        <div class="hero-top">
+          <div class="kicker">جمال طبيعي يلفت من أول نظرة</div>
+          <h1>عدسات ليناس<br>بأناقة مبهرة</h1>
+          <p>
+            تشكيلة ألوان فاخرة من عدسات ليناس تجمع بين الجاذبية الطبيعية
+            والمظهر الراقي مع توفر الدرجات الطبية.
+          </p>
+        </div>
+
+        <div class="hero-box-wrap">
+          <div class="hero-box-shadow"></div>
+          <img class="hero-box" src="https://k.top4top.io/p_3721lsf8b1.png" alt="Linas Box">
+        </div>
+
+        <div class="hero-stats">
+          <div class="stat">
+            <b>120</b>
+            <span>ريال سعودي</span>
+          </div>
+          <div class="stat">
+            <b>2</b>
+            <span>عدستين + محلول</span>
+          </div>
+          <div class="stat">
+            <b>طبي</b>
+            <span>ومتجمل في نفس الوقت</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="tamara reveal">
+      <img class="tamara-logo" src="/mnt/data/user-qdiWEX8t1jpy3dInSNiJ4VLr/8830dfb4107b462d9d4b796360bba2fd/mnt/data/tamara_logo_crop.png" alt="Tamara">
+      <div>
+        <small>خيار دفع مرن</small>
+        <strong>قسمها على 4 دفعات بدون فوائد مع تمارا</strong>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="section-head reveal">
+        <div>
+          <h2>لماذا ليناس</h2>
+          <span>تفاصيل ترفع قيمة الإعلان</span>
+        </div>
+      </div>
+
+      <div class="feature-grid">
+        <div class="feature reveal">
+          <div class="feature-icon">01</div>
+          <div>
+            <b>ألوان طبيعية راقية</b>
+            <p>درجات مختارة بعناية تعطي العين عمقًا وجاذبية بدون مبالغة في اللون.</p>
+          </div>
+        </div>
+
+        <div class="feature reveal">
+          <div class="feature-icon">02</div>
+          <div>
+            <b>متوفرة بدرجات طبية</b>
+            <p>مناسبة لمن يريد الجمال مع تصحيح النظر في نفس العدسة وبنفس الإحساس الفخم.</p>
+          </div>
+        </div>
+
+        <div class="feature reveal">
+          <div class="feature-icon">03</div>
+          <div>
+            <b>إطلالة مناسبة لكل يوم</b>
+            <p>ألوان متعددة تناسب الإطلالات اليومية والمناسبات مع حضور واضح وأناقة ناعمة.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="collection">
+      <div class="section-head reveal">
+        <div>
+          <h2>مجموعة الألوان</h2>
+          <span>اختر اللون الذي يناسب حضورك</span>
+        </div>
+      </div>
+
+      <div class="filter-row reveal">
+        <button class="filter-btn active" data-filter="all">الكل</button>
+        <button class="filter-btn" data-filter="warm">دافئ</button>
+        <button class="filter-btn" data-filter="gray">رمادي</button>
+        <button class="filter-btn" data-filter="green">أخضر</button>
+        <button class="filter-btn" data-filter="dark">غامق</button>
+      </div>
+
+      <div class="cards">
+        <!-- TAN -->
+        <article class="lens-card reveal" data-category="warm">
+          <div class="lens-media">
+            <img class="model" src="https://cdn.salla.sa/WlBnoV/d302da95-2b82-4f2d-b107-cc4412841df1-1000x1000-i8UYUzwiP8NRqwjxA6VyVrxl3TFR7zxhiVgNvd3Y.png" alt="Tan">
+            <div class="lens-overlay"></div>
+            <div class="lens-top-badge">Tan · تان</div>
+            <div class="bubble-eye">
+              <img src="https://cdn.salla.sa/WlBnoV/d302da95-2b82-4f2d-b107-cc4412841df1-1000x1000-i8UYUzwiP8NRqwjxA6VyVrxl3TFR7zxhiVgNvd3Y.png" alt="Tan Eye">
+            </div>
+            <img class="box-mini" src="https://k.top4top.io/p_3721lsf8b1.png" alt="Linas Box">
+          </div>
+          <div class="lens-content">
+            <div class="lens-title">
+              <h3>تان<small>Tan</small></h3>
+              <div class="price"><b>120 SAR</b><span>عدستين + محلول مجاني</span></div>
+            </div>
+            <p class="lens-desc">لون دافئ وأنيق يمنح العين حضورًا طبيعيًا ولمسة فخمة مناسبة للإطلالات اليومية.</p>
+            <div class="meta-grid">
+              <div class="meta-item"><span>النوع</span><b>ملون طبي</b></div>
+              <div class="meta-item"><span>الستايل</span><b>دفء طبيعي راقٍ</b></div>
+            </div>
+            <div class="lens-actions">
+              <a class="btn btn-primary" href="https://linas.sa/%D8%B9%D8%AF%D8%B3%D8%A7%D8%AA-%D9%84%D9%8A%D9%86%D8%A7%D8%B3-%D8%AA%D8%A7%D9%86-tan/p558450210" target="_blank">اطلب الآن</a>
+              <a class="btn btn-secondary" href="#hero">أعلى الصفحة</a>
+            </div>
+          </div>
+        </article>
+
+        <!-- BLACK -->
+        <article class="lens-card reveal" data-category="dark">
+          <div class="lens-media">
+            <img class="model" src="https://cdn.salla.sa/WlBnoV/bb7f7dab-78a7-4567-b68e-a564112082e9-1000x1000-2N1WS30O3LgzIB9bmEfUXkoJNo3qfmdKllpYy4RR.png" alt="Black">
+            <div class="lens-overlay"></div>
+            <div class="lens-top-badge">Black · بلاك</div>
+            <div class="bubble-eye">
+              <img src="https://cdn.salla.sa/WlBnoV/bb7f7dab-78a7-4567-b68e-a564112082e9-1000x1000-2N1WS30O3LgzIB9bmEfUXkoJNo3qfmdKllpYy4RR.png" alt="Black Eye">
+            </div>
+            <img class="box-mini" src="https://k.top4top.io/p_3721lsf8b1.png" alt="Linas Box">
+          </div>
+          <div class="lens-content">
+            <div class="lens-title">
+              <h3>بلاك<small>Black</small></h3>
+              <div class="price"><b>120 SAR</b><span>عدستين + محلول مجاني</span></div>
+            </div>
+            <p class="lens-desc">لون غامق ساحر يمنح العين عمقًا أقوى ومظهرًا لافتًا بلمسة أنيقة وفخمة.</p>
+            <div class="meta-grid">
+              <div class="meta-item"><span>النوع</span><b>ملون طبي</b></div>
+              <div class="meta-item"><span>الستايل</span><b>عمق قوي وأناقة</b></div>
+            </div>
+            <div class="lens-actions">
+              <a class="btn btn-primary" href="https://linas.sa/%D8%B9%D8%AF%D8%B3%D8%A7%D8%AA-%D9%84%D9%8A%D9%86%D8%A7%D8%B3-%D8%A8%D9%84%D8%A7%D9%83-black/p51082203" target="_blank">اطلب الآن</a>
+              <a class="btn btn-secondary" href="#hero">أعلى الصفحة</a>
+            </div>
+          </div>
+        </article>
+
+        <!-- AGATE -->
+        <article class="lens-card reveal" data-category="gray">
+          <div class="lens-media">
+            <img class="model" src="https://cdn.salla.sa/WlBnoV/c27f1e60-80fd-4f0a-b7b7-a5c08cb2ffca-1000x1000-Q3Y5PArmKJSYnWDXORYssZ1uLkI467fpSDSalann.png" alt="Agate">
+            <div class="lens-overlay"></div>
+            <div class="lens-top-badge">Agate · أقيت</div>
+            <div class="bubble-eye">
+              <img src="https://cdn.salla.sa/WlBnoV/c27f1e60-80fd-4f0a-b7b7-a5c08cb2ffca-1000x1000-Q3Y5PArmKJSYnWDXORYssZ1uLkI467fpSDSalann.png" alt="Agate Eye">
+            </div>
+            <img class="box-mini" src="https://k.top4top.io/p_3721lsf8b1.png" alt="Linas Box">
+          </div>
+          <div class="lens-content">
+            <div class="lens-title">
+              <h3>أقيت<small>Agate</small></h3>
+              <div class="price"><b>120 SAR</b><span>عدستين + محلول مجاني</span></div>
+            </div>
+            <p class="lens-desc">لون رمادي فاخر بمظهر هادئ وراقي يعطي العين وضوحًا وأناقة طبيعية جذابة.</p>
+            <div class="meta-grid">
+              <div class="meta-item"><span>النوع</span><b>ملون طبي</b></div>
+              <div class="meta-item"><span>الستايل</span><b>رمادي ناعم</b></div>
+            </div>
+            <div class="lens-actions">
+              <a class="btn btn-primary" href="https://linas.sa/%D8%B9%D8%AF%D8%B3%D8%A7%D8%AA-%D9%84%D9%8A%D9%86%D8%A7%D8%B3-%D8%A7%D9%82%D9%8A%D8%AA-agate/p1947531006" target="_blank">اطلب الآن</a>
+              <a class="btn btn-secondary" href="#hero">أعلى الصفحة</a>
+            </div>
+          </div>
+        </article>
+
+        <!-- ARJAN -->
+        <article class="lens-card reveal" data-category="warm">
+          <div class="lens-media">
+            <img class="model" src="https://cdn.salla.sa/WlBnoV/e822084b-3697-4c20-84d5-732c2f5d72e1-1000x1000-oAOfexmQ5uJ3UosVT5CJ9S9AwkICmIQUWo22SLAg.png" alt="Arjan">
+            <div class="lens-overlay"></div>
+            <div class="lens-top-badge">Arjan · أرجان</div>
+            <div class="bubble-eye">
+              <img src="https://cdn.salla.sa/WlBnoV/e822084b-3697-4c20-84d5-732c2f5d72e1-1000x1000-oAOfexmQ5uJ3UosVT5CJ9S9AwkICmIQUWo22SLAg.png" alt="Arjan Eye">
+            </div>
+            <img class="box-mini" src="https://k.top4top.io/p_3721lsf8b1.png" alt="Linas Box">
+          </div>
+          <div class="lens-content">
+            <div class="lens-title">
+              <h3>أرجان<small>Arjan</small></h3>
+              <div class="price"><b>120 SAR</b><span>عدستين + محلول مجاني</span></div>
+            </div>
+            <p class="lens-desc">درجة بنية دافئة تمنح العين اتساعًا لطيفًا وحضورًا ناعمًا مناسبًا لكل وقت.</p>
+            <div class="meta-grid">
+              <div class="meta-item"><span>النوع</span><b>ملون طبي</b></div>
+              <div class="meta-item"><span>الستايل</span><b>بني دافئ طبيعي</b></div>
+            </div>
+            <div class="lens-actions">
+              <a class="btn btn-primary" href="https://linas.sa/%D8%B9%D8%AF%D8%B3%D8%A7%D8%AA-%D9%84%D9%8A%D9%86%D8%A7%D8%B3-%D8%A7%D8%B1%D8%AC%D8%A7%D9%86-arjan/p1338485142" target="_blank">اطلب الآن</a>
+              <a class="btn btn-secondary" href="#hero">أعلى الصفحة</a>
+            </div>
+          </div>
+        </article>
+
+        <!-- SAND -->
+        <article class="lens-card reveal" data-category="gray">
+          <div class="lens-media">
+            <img class="model" src="https://cdn.salla.sa/WlBnoV/84935392-fa04-45b4-a855-271bfd6ef09d-1000x1000-ed0BCH21Sf3XLVt4rYAPZwdntPhcaOLdPDWcUlPU.png" alt="Sand">
+            <div class="lens-overlay"></div>
+            <div class="lens-top-badge">Sand · ساند</div>
+            <div class="bubble-eye">
+              <img src="https://cdn.salla.sa/WlBnoV/84935392-fa04-45b4-a855-271bfd6ef09d-1000x1000-ed0BCH21Sf3XLVt4rYAPZwdntPhcaOLdPDWcUlPU.png" alt="Sand Eye">
+            </div>
+            <img class="box-mini" src="https://k.top4top.io/p_3721lsf8b1.png" alt="Linas Box">
+          </div>
+          <div class="lens-content">
+            <div class="lens-title">
+              <h3>ساند<small>Sand</small></h3>
+              <div class="price"><b>120 SAR</b><span>عدستين + محلول مجاني</span></div>
+            </div>
+            <p class="lens-desc">درجة رمادية بيجية راقية تجمع بين الهدوء والجاذبية وتناسب الإطلالات الهادئة.</p>
+            <div class="meta-grid">
+              <div class="meta-item"><span>النوع</span><b>ملون طبي</b></div>
+              <div class="meta-item"><span>الستايل</span><b>رمادي بيج ناعم</b></div>
+            </div>
+            <div class="lens-actions">
+              <a class="btn btn-primary" href="https://linas.sa/%D8%B9%D8%AF%D8%B3%D8%A7%D8%AA-%D9%84%D9%8A%D9%86%D8%A7%D8%B3-%D8%B3%D8%A7%D9%86%D8%AF-sand/p1949977611" target="_blank">اطلب الآن</a>
+              <a class="btn btn-secondary" href="#hero">أعلى الصفحة</a>
+            </div>
+          </div>
+        </article>
+
+        <!-- LIME -->
+        <article class="lens-card reveal" data-category="green">
+          <div class="lens-media">
+            <img class="model" src="https://cdn.salla.sa/WlBnoV/e87ab308-cfcf-427d-8625-bb415dd5afad-1000x1000-k4k55wGc3ES41GWr3qP141dcbr6VvVvnlWzy0wiq.png" alt="Lime">
+            <div class="lens-overlay"></div>
+            <div class="lens-top-badge">Lime · ليم</div>
+            <div class="bubble-eye">
+              <img src="https://cdn.salla.sa/WlBnoV/e87ab308-cfcf-427d-8625-bb415dd5afad-1000x1000-k4k55wGc3ES41GWr3qP141dcbr6VvVvnlWzy0wiq.png" alt="Lime Eye">
+            </div>
+            <img class="box-mini" src="https://k.top4top.io/p_3721lsf8b1.png" alt="Linas Box">
+          </div>
+          <div class="lens-content">
+            <div class="lens-title">
+              <h3>ليم<small>Lime</small></h3>
+              <div class="price"><b>120 SAR</b><span>عدستين + محلول مجاني</span></div>
+            </div>
+            <p class="lens-desc">لون أخضر فاخر يمنح العين لمسة مختلفة واضحة مع بقاء الإحساس راقيًا ومميزًا.</p>
+            <div class="meta-grid">
+              <div class="meta-item"><span>النوع</span><b>ملون طبي</b></div>
+              <div class="meta-item"><span>الستايل</span><b>أخضر أنيق لافت</b></div>
+            </div>
+            <div class="lens-actions">
+              <a class="btn btn-primary" href="https://linas.sa/%D8%B9%D8%AF%D8%B3%D8%A7%D8%AA-%D9%84%D9%8A%D9%86%D8%A7%D8%B3-%D9%84%D8%A7%D9%8A%D9%85-lime/p2042667022" target="_blank">اطلب الآن</a>
+              <a class="btn btn-secondary" href="#hero">أعلى الصفحة</a>
+            </div>
+          </div>
+        </article>
+
+        <!-- OCEAN -->
+        <article class="lens-card reveal" data-category="gray">
+          <div class="lens-media">
+            <img class="model" src="https://cdn.salla.sa/WlBnoV/36bef992-82b0-45d4-908a-5c5f87359330-1000x1000-WIIQCDeu1B2PN61fs574Frv6oarqOBJPPNP2AKrc.png" alt="Ocean">
+            <div class="lens-overlay"></div>
+            <div class="lens-top-badge">Ocean · أوشن</div>
+            <div class="bubble-eye">
+              <img src="https://cdn.salla.sa/WlBnoV/36bef992-82b0-45d4-908a-5c5f87359330-1000x1000-WIIQCDeu1B2PN61fs574Frv6oarqOBJPPNP2AKrc.png" alt="Ocean Eye">
+            </div>
+            <img class="box-mini" src="https://k.top4top.io/p_3721lsf8b1.png" alt="Linas Box">
+          </div>
+          <div class="lens-content">
+            <div class="lens-title">
+              <h3>أوشن<small>Ocean</small></h3>
+              <div class="price"><b>120 SAR</b><span>عدستين + محلول مجاني</span></div>
+            </div>
+            <p class="lens-desc">درجة رمادية مزرقة مبهرة تعطي العين حضورًا باردًا فاخرًا ومظهرًا ملفتًا جدًا.</p>
+            <div class="meta-grid">
+              <div class="meta-item"><span>النوع</span><b>ملون طبي</b></div>
+              <div class="meta-item"><span>الستايل</span><b>رمادي أزرق فاخر</b></div>
+            </div>
+            <div class="lens-actions">
+              <a class="btn btn-primary" href="https://linas.sa/%D8%B9%D8%AF%D8%B3%D8%A7%D8%AA-%D9%84%D9%8A%D9%86%D8%A7%D8%B3-%D8%A7%D9%88%D8%B4%D9%86-ocean/p604119147" target="_blank">اطلب الآن</a>
+              <a class="btn btn-secondary" href="#hero">أعلى الصفحة</a>
+            </div>
+          </div>
+        </article>
+
+        <!-- ICY -->
+        <article class="lens-card reveal" data-category="gray">
+          <div class="lens-media">
+            <img class="model" src="https://cdn.salla.sa/WlBnoV/3eba4892-eccd-4bae-b7dc-6f1aa35ba0be-1000x1000-sGYtBxN1FSKPGtkmUnokEXyAWjIEb3cAAddmTNCp.png" alt="Icy">
+            <div class="lens-overlay"></div>
+            <div class="lens-top-badge">Icy · آيسي</div>
+            <div class="bubble-eye">
+              <img src="https://cdn.salla.sa/WlBnoV/3eba4892-eccd-4bae-b7dc-6f1aa35ba0be-1000x1000-sGYtBxN1FSKPGtkmUnokEXyAWjIEb3cAAddmTNCp.png" alt="Icy Eye">
+            </div>
+            <img class="box-mini" src="https://k.top4top.io/p_3721lsf8b1.png" alt="Linas Box">
+          </div>
+          <div class="lens-content">
+            <div class="lens-title">
+              <h3>آيسي<small>Icy</small></h3>
+              <div class="price"><b>120 SAR</b><span>عدستين + محلول مجاني</span></div>
+            </div>
+            <p class="lens-desc">لون جليدي أنيق يمنح العين وضوحًا قويًا ولمسة لونية باردة راقية ومميزة.</p>
+            <div class="meta-grid">
+              <div class="meta-item"><span>النوع</span><b>ملون طبي</b></div>
+              <div class="meta-item"><span>الستايل</span><b>جليدي فاخر</b></div>
+            </div>
+            <div class="lens-actions">
+              <a class="btn btn-primary" href="https://linas.sa/%D8%B9%D8%AF%D8%B3%D8%A7%D8%AA-%D9%84%D9%8A%D9%86%D8%A7%D8%B3-%D8%A7%D9%8A%D8%B3%D9%8A-icy/p334127950" target="_blank">اطلب الآن</a>
+              <a class="btn btn-secondary" href="#hero">أعلى الصفحة</a>
+            </div>
+          </div>
+        </article>
+
+        <!-- GRAY -->
+        <article class="lens-card reveal" data-category="gray">
+          <div class="lens-media">
+            <img class="model" src="https://cdn.salla.sa/WlBnoV/dc4469c3-4fcd-430c-b9e7-692e1cbf46d6-1000x1000-RGV9gCpkQqEiKQHsKDz1vVPgm0R11zxv0Y9Q7fmc.png" alt="Gray">
+            <div class="lens-overlay"></div>
+            <div class="lens-top-badge">Gray · قراي</div>
+            <div class="bubble-eye">
+              <img src="https://cdn.salla.sa/WlBnoV/dc4469c3-4fcd-430c-b9e7-692e1cbf46d6-1000x1000-RGV9gCpkQqEiKQHsKDz1vVPgm0R11zxv0Y9Q7fmc.png" alt="Gray Eye">
+            </div>
+            <img class="box-mini" src="https://k.top4top.io/p_3721lsf8b1.png" alt="Linas Box">
+          </div>
+          <div class="lens-content">
+            <div class="lens-title">
+              <h3>قراي<small>Gray</small></h3>
+              <div class="price"><b>120 SAR</b><span>عدستين + محلول مجاني</span></div>
+            </div>
+            <p class="lens-desc">رمادي كلاسيكي فاخر يناسب الباحثات عن حضور هادئ ومظهر لافت بدون مبالغة.</p>
+            <div class="meta-grid">
+              <div class="meta-item"><span>النوع</span><b>ملون طبي</b></div>
+              <div class="meta-item"><span>الستايل</span><b>رمادي كلاسيكي</b></div>
+            </div>
+            <div class="lens-actions">
+              <a class="btn btn-primary" href="https://linas.sa/%D8%B9%D8%AF%D8%B3%D8%A7%D8%AA-%D9%84%D9%8A%D9%86%D8%A7%D8%B3-%D9%82%D8%B1%D8%A7%D9%8A-gray/p1658123603" target="_blank">اطلب الآن</a>
+              <a class="btn btn-secondary" href="#hero">أعلى الصفحة</a>
+            </div>
+          </div>
+        </article>
+
+        <!-- CREAMY -->
+        <article class="lens-card reveal" data-category="gray warm">
+          <div class="lens-media">
+            <img class="model" src="https://cdn.salla.sa/WlBnoV/4731afc1-7085-4a3a-ac88-2e3c10661403-1000x1000-B8e90lX8ADh8poG1JA2W5guPUzBhpRVjR1nMtAaT.png" alt="Creamy">
+            <div class="lens-overlay"></div>
+            <div class="lens-top-badge">Creamy · كريمي</div>
+            <div class="bubble-eye">
+              <img src="https://cdn.salla.sa/WlBnoV/4731afc1-7085-4a3a-ac88-2e3c10661403-1000x1000-B8e90lX8ADh8poG1JA2W5guPUzBhpRVjR1nMtAaT.png" alt="Creamy Eye">
+            </div>
+            <img class="box-mini" src="https://k.top4top.io/p_3721lsf8b1.png" alt="Linas Box">
+          </div>
+          <div class="lens-content">
+            <div class="lens-title">
+              <h3>كريمي<small>Creamy</small></h3>
+              <div class="price"><b>120 SAR</b><span>عدستين + محلول مجاني</span></div>
+            </div>
+            <p class="lens-desc">لون كريمي ناعم يميل للعسلي الفاتح ويمنح العين إشراقًا أنثويًا راقيًا.</p>
+            <div class="meta-grid">
+              <div class="meta-item"><span>النوع</span><b>ملون طبي</b></div>
+              <div class="meta-item"><span>الستايل</span><b>كريمي عسلي ناعم</b></div>
+            </div>
+            <div class="lens-actions">
+              <a class="btn btn-primary" href="https://linas.sa/%D8%B9%D8%AF%D8%B3%D8%A7%D8%AA-%D9%84%D9%8A%D9%86%D8%A7%D8%B3-%D9%83%D8%B1%D9%8A%D9%85%D9%8A-creamy/p558067177" target="_blank">اطلب الآن</a>
+              <a class="btn btn-secondary" href="#hero">أعلى الصفحة</a>
+            </div>
+          </div>
+        </article>
+
+        <!-- MARBLE -->
+        <article class="lens-card reveal" data-category="warm">
+          <div class="lens-media">
+            <img class="model" src="https://cdn.salla.sa/WlBnoV/78bd08bb-230d-4346-a37a-0a16cff62838-1000x1000-FahQdefWdGtRZe0jY5yNEiyqQOq8um2nU6BU11CB.jpg" alt="Marble">
+            <div class="lens-overlay"></div>
+            <div class="lens-top-badge">Marble · ماربل</div>
+            <div class="bubble-eye">
+              <img src="https://cdn.salla.sa/WlBnoV/78bd08bb-230d-4346-a37a-0a16cff62838-1000x1000-FahQdefWdGtRZe0jY5yNEiyqQOq8um2nU6BU11CB.jpg" alt="Marble Eye">
+            </div>
+            <img class="box-mini" src="https://k.top4top.io/p_3721lsf8b1.png" alt="Linas Box">
+          </div>
+          <div class="lens-content">
+            <div class="lens-title">
+              <h3>ماربل<small>Marble</small></h3>
+              <div class="price"><b>120 SAR</b><span>عدستين + محلول مجاني</span></div>
+            </div>
+            <p class="lens-desc">بني طبيعي فخم يضيف دفئًا جميلًا للعين ويعطي إطلالة يومية أنيقة وواضحة.</p>
+            <div class="meta-grid">
+              <div class="meta-item"><span>النوع</span><b>ملون طبي</b></div>
+              <div class="meta-item"><span>الستايل</span><b>بني طبيعي راقٍ</b></div>
+            </div>
+            <div class="lens-actions">
+              <a class="btn btn-primary" href="https://linas.sa/%D8%B9%D8%AF%D8%B3%D8%A7%D8%AA-%D9%84%D9%8A%D9%86%D8%A7%D8%B3-%D9%83%D8%B1%D9%8A%D9%85%D9%8A-creamy/p558067177" target="_blank">اطلب الآن</a>
+              <a class="btn btn-secondary" href="#hero">أعلى الصفحة</a>
+            </div>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <div class="sticky-bar">
+      <div class="sticky-inner">
+        <div class="sticky-note">
+          عدسات ليناس متوفرة بألوان طبية فاخرة مع إمكانية الدفع على 4 دفعات عبر تمارا
+        </div>
+        <a class="sticky-cta" href="https://linas.sa/" target="_blank">تسوق الآن</a>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    const observer = new IntersectionObserver((entries)=>{
+      entries.forEach(entry=>{
+        if(entry.isIntersecting){
+          entry.target.classList.add('show');
+        }
+      });
+    }, {threshold:0.14});
+
+    document.querySelectorAll('.reveal').forEach(el=>observer.observe(el));
+
+    const filterButtons = document.querySelectorAll('.filter-btn');
+    const cards = document.querySelectorAll('.lens-card');
+
+    filterButtons.forEach(btn=>{
+      btn.addEventListener('click', ()=>{
+        filterButtons.forEach(b=>b.classList.remove('active'));
+        btn.classList.add('active');
+
+        const filter = btn.dataset.filter;
+        cards.forEach(card=>{
+          if(filter === 'all'){
+            card.style.display = 'block';
+          }else{
+            const cats = card.dataset.category.split(' ');
+            card.style.display = cats.includes(filter) ? 'block' : 'none';
+          }
+        });
+      });
+    });
+  </script>
+</body>
+</html>
